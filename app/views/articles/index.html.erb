@@ -1,0 +1,27 @@
+<h1>Articles#index</h1>
+<p>Find me in app/views/articles/index.html.erb</p>
+<h1>List of All Articles</h1>
+<ol>
+<% @articles.each do |article| %>
+    <li>
+    <%= article.title %>
+    </li>
+<% end %>
+</ol>
+
+<h1>Articles#index</h1>
+<p>Find me in app/views/articles/index.html.erb</p>
+<h1>List of All Articles by three ways</h1>
+<ol>
+<% @articles.each do |article| %>
+    <li>
+    <a href="/articles/<%= article.id %>" > <%= article.title %> </a> <br>
+
+    <a href="<%= article_path(article) %>" > <%= article.title %> </a> <br>
+
+    <%= link_to article.title, article %> <br>
+    </li>
+<% end %>
+</ol>
+
+<%= link_to "New Create Article", new_article_path %>
